@@ -1,3 +1,9 @@
-export CARGO_HOME=$PWD/.cargo
+if [ "$(uname)" == "Darwin" ]; then
+  export CARGO_HOME=$HOME/.cargo/
 
-wasm-pack test --firefox --headless
+  wasm-pack test --firefox --headless
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  export CARGO_HOME=$PWD/.cargo
+
+  wasm-pack test --firefox --headless
+fi
