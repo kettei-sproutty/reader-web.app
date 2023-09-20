@@ -3,11 +3,13 @@
   "pipeline": {
     "//#install-rust": {
       "cache": true,
-      "outputs": [".cargo/**"]
+      "outputs": [".cargo/**"],
+      "env": ["CARGO_HOME=.cargo"]
     },
     "parser-js-wrapper#build": {
       "dependsOn": ["//#install-rust"],
-      "outputs": ["pkg/**"]
+      "outputs": ["pkg/**"],
+      "env": ["CARGO_HOME=.cargo"]
     },
     "install": {
       "dependsOn": ["parser-js-wrapper#build"],
