@@ -9,7 +9,7 @@
     "parser-js-wrapper#build": {
       "dependsOn": ["//#install-rust"],
       "outputs": ["pkg/**"],
-      "env": ["CARGO_HOME=.cargo"]
+      "env": ["CARGO_HOME"]
     },
     "install": {
       "dependsOn": ["parser-js-wrapper#build"],
