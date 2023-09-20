@@ -1,7 +1,10 @@
 {
   "name": "parser-js-wrapper",
   "scripts": {
-    "build": "chmod +x ./scripts/build.sh && ./scripts/build.sh",
-    "test": "chmod +x ./scripts/test.sh && ./scripts/test.sh"
+    "build": "wasm-pack build --release",
+    "test": "wasm-pack test --firefox"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.12.1"
   }
 }
