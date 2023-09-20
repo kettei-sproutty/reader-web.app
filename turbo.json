@@ -4,7 +4,7 @@
     "//#install-rust": {
       "cache": true,
       "outputs": [".cargo/**"],
-      "env": ["CARGO_HOME=.cargo"]
+      "env": ["CARGO_HOME"]
     },
     "parser-js-wrapper#build": {
       "dependsOn": ["//#install-rust"],
@@ -19,8 +19,6 @@
       "dependsOn": ["parser-js-wrapper#build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "dev": {},
-    "lint": {},
-    "test": {}
+    "dev": {}
   }
 }

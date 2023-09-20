@@ -28,7 +28,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     fi
 
     # Source rust
-    source $PWD/.cargo/env
+    source $CARGO_HOME/env
 
     # Install nightly
     rustup toolchain install nightly --allow-downgrade --profile minimal

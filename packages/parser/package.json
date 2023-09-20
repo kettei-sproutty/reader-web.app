@@ -1,8 +1,7 @@
 {
   "name": "parser-js-wrapper",
   "scripts": {
-    "build": "chmod +x ../../scripts/source.sh && ../../scripts/source.sh && wasm-pack build --release",
-    "test": "wasm-pack test --firefox"
+    "build": "if [ $(uname) == 'Linux' ]; then source $CARGO_HOME/env; fi && wasm-pack build --release"
   },
   "devDependencies": {
     "wasm-pack": "^0.12.1"
