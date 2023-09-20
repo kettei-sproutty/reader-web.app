@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "//#install-rust": {
+      "cache": true,
+      "outputs": []
+    },
+    "parser-js-wrapper#build": {
+      "dependsOn": ["//#install-rust"],
+      "outputs": ["pkg/**"]
+    },
+    "install": {
+      "dependsOn": ["parser-js-wrapper#build"],
+      "outputs": ["node_modules/**", "pnpm-lock.json"]
+    },
+    "build": {
+      "dependsOn": ["parser-js-wrapper#build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "dev": {},
+    "lint": {},
+    "test": {}
+  }
+}

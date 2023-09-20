@@ -1,0 +1,26 @@
+{
+  "name": "next-wasm-monorepo",
+  "description": "next-wasm-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "install-rust": "chmod +x ./scripts/install-rust.sh && ./scripts/install-rust.sh",
+    "install": "turbo run install",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.14"
+  },
+  "volta": {
+    "node": "18.18.0",
+    "pnpm": "8.7.0"
+  },
+  "engines": {
+    "node": "18",
+    "pnpm": "8"
+  }
+}

@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = ["packages/*"]
+
+[workspace.package]
+description = "NextWasm"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+wasm-bindgen = "0.2.87"
+wasm-bindgen-test = "0.3.37"
+
+[profile.release]
+opt-level = "s"
+lto = true
+debug = false
+panic = "abort"
+
+[profile.release-debug]
+inherits = "release"
+strip    = false
+debug    = true
