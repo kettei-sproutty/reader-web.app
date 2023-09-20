@@ -9,6 +9,7 @@ if [ "$(uname)" == "Darwin" ]; then
         # Add wasm32-unknown-unknown target
         rustup target add wasm32-unknown-unknown
     fi
+
     # Check if wasm-pack is installed
     if ! command -v wasm-pack &> /dev/null
     then
@@ -23,9 +24,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     then
         # Install rust
         curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path
-        # Add wasm32-unknown-unknown target
-        rustup target add wasm32-unknown-unknown
     fi
+
+    # Source rust
+    source $PWD/.cargo/env
+
+    # Add wasm32-unknown-unknown target
+    rustup target add wasm32-unknown-unknown
+
     # Check if wasm-pack is installed
     if ! command -v wasm-pack &> /dev/null
     then
