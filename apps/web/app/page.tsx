@@ -1,13 +1,16 @@
-"use client"
-import { useEffect } from "react";
+"use client";
 
 const Page = () => {
 
-  useEffect(() => {
-    import('parser').then(({ greet }) => greet());
-  }, [])
-
-  return null;
+  return (
+    <form>
+      <input onChange={event => import('parser').then(async parser => {
+        const text = await parser.log(event.target.files.item(0).stream());
+        parser.greet(text);
+      })} type="file" name="file" />
+      <button type="submit">Upload</button>
+    </form>
+  );
 };
 
 export default Page
