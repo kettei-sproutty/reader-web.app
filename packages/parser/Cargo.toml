@@ -7,7 +7,9 @@ license.workspace = true
 
 [dependencies]
 wasm-bindgen.workspace = true
+wasm-bindgen-futures = "0.4.37"
 wasm-bindgen-test.workspace = true
+web-sys = { version = "0.3.64", features = ["ReadableStream"] }
 
 [lib]
 crate-type = ["cdylib"]

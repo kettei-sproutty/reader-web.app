@@ -1,9 +1,11 @@
 {
   "name": "parser-js-wrapper",
   "scripts": {
+    "dev": "chokidar \"**/*.rs\" -c \"pnpm build\"",
     "build": "if [ $(uname) == 'Linux' ]; then source $CARGO_HOME/env; fi && wasm-pack build --release"
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "wasm-pack": "^0.12.1"
   }
 }
