@@ -3,7 +3,7 @@
   "pipeline": {
     "//#install-rust": {
       "cache": true,
-      "outputs": []
+      "outputs": [".cargo/**"]
     },
     "parser-js-wrapper#build": {
       "dependsOn": ["//#install-rust"],
