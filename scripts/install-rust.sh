@@ -2,6 +2,7 @@ if ! command -v rustup &> /dev/null
 then
     echo "rustup could not be found"
     amazon-linux-extras install rust1
+    where cargo
     rustup target add wasm32-unknown-unknown
 
     if ! command -v wasm-pack &> /dev/null
