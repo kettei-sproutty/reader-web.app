@@ -5,5 +5,5 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   export CARGO_HOME=$PWD/.cargo
 
-  wasm-pack build --release
+  $CARGO_HOME/bin/wasm-pack build --release
 fi
