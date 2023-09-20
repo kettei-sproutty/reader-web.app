@@ -5,7 +5,8 @@ if [ "$(uname)" == "Darwin" ]; then
     if ! command -v cargo &> /dev/null
     then
         # Install rust
-        curl https://sh.rustup.rs -sSf | sh
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+        rustup toolchain install nightly --allow-downgrade --profile minimal
         # Add wasm32-unknown-unknown target
         rustup target add wasm32-unknown-unknown
     fi
@@ -23,11 +24,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     if ! command -v cargo &> /dev/null
     then
         # Install rust
-        curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path
+        curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain none -y
     fi
 
     # Source rust
     source $PWD/.cargo/env
+
+    # Install nightly
+    rustup toolchain install nightly --allow-downgrade --profile minimal
 
     # Add wasm32-unknown-unknown target
     rustup target add wasm32-unknown-unknown
